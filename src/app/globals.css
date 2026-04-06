@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================== DESIGN TOKENS ================== */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+
+  --muted: 215 16% 47%;
+  --border: 214 32% 91%;
+  --primary: 222 47% 11%;
+
+  --radius: 0.5rem;
+}
+
+/* ================== DARK MODE ================== */
+.dark {
+  --background: 222 47% 4%;
+  --foreground: 210 40% 98%;
+
+  --muted: 215 20% 65%;
+  --border: 217 19% 27%;
+  --primary: 210 40% 98%;
+}
+
+/* ================== BASE ================== */
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
