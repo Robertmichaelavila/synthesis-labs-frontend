@@ -1,4 +1,5 @@
 import path from 'path'
+import type { NextConfig } from 'next'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -6,17 +7,18 @@ if (!API_URL) {
   throw new Error('API URL not defined')
 }
 
-export default {
-  webpack: (config:any) => {
-    config.resolve.alias['@'] = path.resolve(__dirname, 'src')
-    return config
+const nextConfig: NextConfig = {
+  turbopack: {
+    root: path.join(__dirname),
   },
   async rewrites() {
     return [
       {
-        source: '/api/:path*',            // qualquer chamada para /api/...
-        destination: `${API_URL}/:path*`, // encaminha para o backend
+        source: '/api/:path*',
+        destination: `${API_URL}/:path*`,
       },
-    ];
+    ]
   },
 }
+
+export default nextConfig
