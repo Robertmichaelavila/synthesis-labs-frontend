@@ -1,0 +1,11 @@
+# Sync this Blueprint in Render, or copy build/start commands into the Web Service settings.
+services:
+  - type: web
+    name: synthesis-labs-frontend
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
+    startCommand: corepack enable && pnpm start
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
